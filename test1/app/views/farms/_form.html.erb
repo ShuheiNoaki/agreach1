@@ -1,0 +1,47 @@
+<%= form_for(@farm) do |f| %>
+  <% if @farm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@farm.errors.count, "error") %> prohibited this farm from being saved:</h2>
+
+      <ul>
+      <% @farm.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :farmname %><br>
+    <%= f.text_field :farmname %>
+  </div>
+  <div class="field">
+    <%= f.label :farmtype %><br>
+    <%= f.select :farmtype, ['家族経営', '農業生産法人', '株式会社'],
+    { include_blank: '選択してください'}, class: 'pub' %>
+  </div>
+  <div class="field">
+    <%= f.label :farm_url %><br>
+    <%= f.text_field :farm_url %>
+  </div>
+  <div class="field">
+    <%= f.label :area %><br>
+    <%= f.number_field :area %>
+  </div>
+
+  <div class="field">
+    <%= f.label :crops %></br>
+    <%= collection_check_boxes(:farm, :crop_ids, Crop.all, :id, :name ) do |ff| %>
+    <% ff.label{ ff.check_box + ff.text }%>
+    <% end %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :message %><br>
+    <%= f.text_area :message %>
+  </div>
+  <div class="actions">
+    <%= f.submit '保存', data:{ confirm: '保存してもいいですか？', disable_with: '処理中'} %>
+  </div>
+<% end %>

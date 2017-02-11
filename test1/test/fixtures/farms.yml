@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  farmname: MyString
+  farm_url: MyString
+  area: 1
+  image_url: MyString
+  message: MyText
+
+two:
+  farmname: MyString
+  farm_url: MyString
+  area: 1
+  image_url: MyString
+  message: MyText

@@ -1,0 +1,10 @@
+<h2>農家検索</h2>
+
+<%= form_tag action: :list do %>
+	<div class="field">
+		<%= label_tag :farmtype, '事業形態：' %><br/>
+		<%= select_tag('farmtype', options_from_collection_for_select( @farms, :farmtype, :farmtype, '家族経営')) %>
+	</div>
+
+	<%= submit_tag '検索' %>
+<% end %>

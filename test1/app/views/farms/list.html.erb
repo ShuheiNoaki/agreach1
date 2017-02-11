@@ -1,0 +1,11 @@
+<table>
+	<tr>
+		<th>Farm name</th>
+	</tr>
+
+	<% @farms.each do |farm| %>
+	<tr>
+		<td><%= link_to farm.farmname, farm %></td>
+	</tr>
+	<% end %>
+</table>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @crop.name %>
+</p>
+
+<p>
+  <strong>Discription:</strong>
+  <%= @crop.discription %>
+</p>
+
+<p>
+  <strong>Farms count:</strong>
+  <%= @crop.farms.count %>
+</p>
+
+<p>
+	<strong>Farms</strong>
+	<% @crop.farms.each do |farm| %>
+	<%= link_to farm.farmname, farm %>
+	<% end %>
+</p>
+
+<%= link_to 'Edit', edit_crop_path(@crop) %> |
+<%= link_to 'Back', crops_path %>

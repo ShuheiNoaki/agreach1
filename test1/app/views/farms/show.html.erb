@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Farmname:</strong>
+  <%= @farm.farmname %>
+</p>
+
+<p>
+  <strong>Farmtype:</strong>
+  <%= @farm.farmtype %>
+</p>
+
+<p>
+  <% if @farm.farm_url? %>
+  <strong>Farm url:</strong>
+  <%=link_to @farm.farm_url, @farm.farm_url %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Area:</strong>
+  <%= @farm.area %>ha
+</p>
+
+<p>
+  <strong> Crop:</strong>
+  <% @farm.crops.each do |crop| %>
+    <%= link_to crop.name, crop %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @farm.image_url %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @farm.message %>
+</p>
+
+<p>
+  <strong>Member list:</strong>
+  <% @farm.users.each do |mem| %>
+  <%= link_to mem.username, user_path(mem) %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_farm_path(@farm) %> |
+<%= link_to 'Back', farms_path %>
